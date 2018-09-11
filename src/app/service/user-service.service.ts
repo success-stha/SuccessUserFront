@@ -12,9 +12,6 @@ export class UserServiceService {
   constructor(private http: HttpClient) { }
 
 
-getUsers(){
-  return this.http.get(this.baseUrl + '/userJson');
-}
 
 deleteUser(id: number){
   return this.http.delete(this.baseUrl + '/userDelete/' + id);

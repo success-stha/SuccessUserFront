@@ -1,30 +1,28 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2 class="text-center text-uppercase text-secondary mb-0">Upcoming Events</h2>
+
 <div class="container">
-  <h2 class="text-center text-uppercase text-secondary mb-0">Request Blood </h2>
-  <hr class="star-dark mb-5">
-   <div  class="col-xs-1" align="center">
-  <form name="sentMessage" id="contactForm" novalidate="novalidate">
-        <div class="control-group" style="width: 300px;">
-          <div class="form-group  controls mb-0 pb-2" >
-            <h3>Blood Type</h3>
-            <select name="blood-group" class="form-control">
-              <option value="A+">A+</option>
-              <option value="A-">A-</option>
-              <option value="B+">B+</option>
-              <option value="B-">B-</option>
-            </select>
-          </div>
-          <div class="form-group controls mb-0 pb-2" >
-            <h3>District</h3>
-           
-          </div>
-        </div>
-        
-        <br>
-        <div id="success"></div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">SEARCH</button>
-        </div>
-      </form>
-      </div>
-      
+<ul class="list-unstyled mb-2">
+<li class="card card-body text-dark bg-light mb-2"> 
+<!-- style="background-color: #f44336" -->
+<h3 class="card-header">Your Request</h3>
+<ul class="list-group text-dark">
+<li class="list-group-item"><b>Blood Request Id : </b> {{request.bloodRequestId}}</li>
+<li class="list-group-item"><b>Blood Group : </b> {{request.bloodGroup.bloodType}}</li>
+<li class="list-group-item"><b>Pint :</b> {{request.pint}}</li>
+</ul>
+<div class="wrapper">
+<br>    
+<button class="btn btn-success" style="width: 80px" >Update</button>&nbsp;&nbsp;
+<button class="btn btn-info">Delete</button>
 </div>
+</li>
+
+</ul>
+
+</div> 
+

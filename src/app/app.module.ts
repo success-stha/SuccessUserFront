@@ -15,6 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { EventComponent } from './components/event/event.component';
 import { UserinfoComponent } from './components/userinfo/userinfo.component';
 import { UserRequestComponent } from './components/user-request/user-request.component';
+import { AddBloodRequestComponent } from './components/bloodRequest/add-blood-request/add-blood-request.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UserRequestComponent } from './components/user-request/user-request.com
     LoginComponent,
     EventComponent,
     UserinfoComponent,
-    UserRequestComponent
+    UserRequestComponent,
+    AddBloodRequestComponent
   ],
   imports: [
     BrowserModule,
