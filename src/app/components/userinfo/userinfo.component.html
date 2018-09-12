@@ -1,17 +1,16 @@
 <div class="container">
-<ul class="list-unstyled mb-2" style="margin-top: 120px">   <!-- *ngif="loaded && users?.length > 0" -->
-    <li class="card card-body text-dark bg-light">  <!-- *ngFor="let user of users" -->
-        <h3 class="card-header">Ram Bahadur Sherpa</h3>
+<ul class="list-unstyled mb-2" style="margin-top: 120px">   
+    <li class="card card-body text-dark bg-light">  
+        <h3 class="card-header">{{user.firstName}} {{user.middleName}} {{user.lastName}}</h3>
         <ul class="list-group text-dark">
-            <li class="list-group-item"><b>Gender:</b> Male</li>
-            <li class="list-group-item"><b>Email:</b> ram@gmail.com</li>
-            <li class="list-group-item"><b>Blood Type:</b> A+</li>   
-            <li class="list-group-item"><b>Gender:</b> Male</li>
-            <li class="list-group-item"><b>Phone Number:</b> 9877656545</li>
-            <li class="list-group-item"><b>Joined Date:</b> 2011/10/10</li>
+            <li class="list-group-item"><b>Gender:</b> {{user.gender}}</li>
+            <li class="list-group-item"><b>Email:</b> {{user.email}}</li>
+            <li class="list-group-item"><b>Blood Type:</b> {{user.bloodGroup.bloodType}}</li>   
+            <li class="list-group-item"><b>Gender:</b> {{user.gender}}</li>
+            <li class="list-group-item"><b>Phone Number:</b> {{user.phoneNo}}</li>
             <div class="ml-auto">
                 <br>
-            <button class="btn btn-success">Update</button>
+            <button class="btn btn-success"(click)="updateUser(user)">Update</button>
             </div>
         </ul>
     </li>

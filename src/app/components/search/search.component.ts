@@ -14,7 +14,7 @@ export class SearchComponent implements OnInit {
 
 public bloodRequest: any;
 bloodGroup: BloodGroup;
-selectType: number;
+selectType: number=1;
 
   constructor(private sharedService:SharedServiceService, private bloodRequestService: BloodRequestService, private router: Router) { }
 
@@ -38,11 +38,15 @@ selectType: number;
       this.bloodRequestService.createBloodRequest(this.bloodRequest).subscribe(() => 
       {
         console.log(this.bloodRequest);
+        this.bloodRequest.setter(new BloodRequest());
+        this.router.navigate(['/userrequest'])
      },
         (error) => {
         console.log(error);
          })
 
+
+         
     }
     else {
       this.bloodRequest.bloodGroup.bloodGroupId = this.selectType;

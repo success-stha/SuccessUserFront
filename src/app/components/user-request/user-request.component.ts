@@ -15,7 +15,7 @@ export class UserRequestComponent implements OnInit {
 
   ngOnInit() {
     this.requestService.getter();
-  this.requestService.getById(17)
+  this.requestService.getById(6)
   .subscribe(
 res => {
   this.request=res;
@@ -25,7 +25,7 @@ console.log(res);
   )
   }
 
-  deleteEvent(request) {
+  deleteRequest(request) {
     if(window.confirm('Are sure you want to delete this item ?')){
     this.requestService.deleteBloodRequest(request.bloodRequestId).subscribe(() => {
     }, (error) => {
@@ -33,7 +33,6 @@ console.log(res);
     });
   }}
   
-
 
   updateRequest(request) {
     this.requestService.setter(request);

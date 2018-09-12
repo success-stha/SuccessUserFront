@@ -78,7 +78,7 @@ export class RegisterComponent implements OnInit {
       this.userService.updateUser(this.user).subscribe(
         (user) => {
           console.log(user);
-          this.router.navigate(['/']);
+          this.router.navigate(['/userinfo']);
         }, (error) => {
           console.log(error);
         });
