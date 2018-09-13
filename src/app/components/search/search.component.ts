@@ -15,12 +15,17 @@ export class SearchComponent implements OnInit {
 public bloodRequest: any;
 bloodGroup: BloodGroup;
 selectType: number=1;
+requestType;
 
   constructor(private sharedService:SharedServiceService, private bloodRequestService: BloodRequestService, private router: Router) { }
 
   ngOnInit() {
 
     this.bloodRequest = this.bloodRequestService.getter();
+    if (this.bloodRequest.bloodRequestId == undefined)
+    this.requestType="Request Blood";
+    else
+    this.requestType="Update Request";
     this.sharedService.getBloodGroup()
     .subscribe((res) => {
       console.log(res);
@@ -50,11 +55,12 @@ selectType: number=1;
     }
     else {
       this.bloodRequest.bloodGroup.bloodGroupId = this.selectType;
-      this.bloodRequest.updateRecord(this.bloodRequest)
-        .subscribe((bloodRecord) => {
-          console.log(bloodRecord);
-          this.bloodRequest.setter(new BloodRequest());
-          this.router.navigate(['userrequest']);
+      this.bloodRequestService.updateBloodRequest(this.bloodRequest)
+        .subscribe((bloodRequest) => {
+          console.log(bloodRequest);
+          location.reload();
+          this.bloodRequestService.setter(new BloodRequest());
+          // this.router.navigate(['/userrequest']);
         }, (error) => {
           console.log(error);
         });

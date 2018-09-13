@@ -3,7 +3,7 @@
 <br>
 <section class="search" id="search">
   <div class="container">
-    <h2 class="text-center text-uppercase text-secondary mb-0">Request Blood</h2>
+    <h2 class="text-center text-uppercase text-secondary mb-0">{{requestType}}</h2>
     <hr class="star-dark mb-5">
     <div class="col-xs-1" align="center">
       <form #f="ngForm" (ngSubmit)="requestForm();f.reset()">
@@ -41,7 +41,7 @@
         <br>
         <div id="success"></div>
         <div class="form-group">
-          <button type="submit" [disabled]="f.invalid" class="btn btn-danger btn-xl" id="sendMessageButton" data-toggle="modal" data-target="#exampleModalLong1">SEARCH</button>
+          <button type="submit" [disabled]="f.invalid" class="btn btn-danger btn-xl" id="sendMessageButton" data-toggle="modal" data-target="#exampleModalLong1">REQUEST</button>
         </div>
       </form>
     </div>
