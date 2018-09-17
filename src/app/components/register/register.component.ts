@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
   selectedB: number = 1;
   selectedD: number = 12;
   registerType: string;
+  today: number = Date.now();
 
   constructor(private userService: UserServiceService, private router: Router, private sharedService: SharedServiceService){}
   

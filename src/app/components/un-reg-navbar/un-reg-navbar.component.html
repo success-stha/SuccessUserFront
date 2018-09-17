@@ -11,7 +11,7 @@
               <a class="nav-link py-3 px-0 px-lg-3 rounded bg-secondary" routerLink="/home">Home</a>
             </li>
         <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-0 px-lg-3 rounded bg-secondary" routerLink="/search">Request Blood</a>
+          <a class="nav-link py-3 px-0 px-lg-3 rounded bg-secondary" *ngIf="loginToken != null && loginToken !== ''" routerLink="/search" >Request Blood</a>
         </li>
         <li class="nav-item mx-0 mx-lg-1">
           <a class="nav-link py-3 px-0 px-lg-3 rounded bg-secondary" routerLink="/event">Events</a>
@@ -19,7 +19,7 @@
 
        
         <li class="nav-item dropdown mx-0 mx-lg-1">
-          <a class="nav-link dropdown-toggle py-3 px-0 px-lg-3 rounded bg-secondary" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User Details</a>
+          <a class="nav-link dropdown-toggle py-3 px-0 px-lg-3 rounded bg-secondary" id="navbarDropdown" role="button" *ngIf="loginToken != null && loginToken !== ''" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User Details</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item"  routerLink="/userinfo">Info</a>
             <a class="dropdown-item" routerLink="/userrequest">Requests</a>
@@ -31,13 +31,13 @@
         <li class="nav-item mx-0 mx-lg-1">
           <a class="nav-link py-3 px-0 px-lg-3 rounded bg-secondary" routerLink="/register">Register</a>
         </li>
-        <li class="nav-item mx-0 mx-lg-1">
-          <button class="btn btn-light py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-toggle="modal" href="#login" data-target="#exampleModalLong">Login</button>
-          
+        <li class="nav-item mx-0 mx-lg-1" *ngIf="loginToken == null || loginToken === ''">
+          <button class="btn btn-light py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-toggle="modal" routerLink="/login" data-target="#exampleModalLong">Login</button>
         </li>
-
+        <li class="nav-item mx-0 mx-lg-1" *ngIf="loginToken != null && loginToken !== ''">
+          <button class="btn btn-light py-3 px-0 px-lg-3 rounded js-scroll-trigger" (click)="logout()">Logout</button>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
-<app-login></app-login>

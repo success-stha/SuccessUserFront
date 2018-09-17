@@ -2,24 +2,36 @@ import { Component, OnInit } from '@angular/core';
 import { BloodRequestService } from '../../service/blood-request.service';
 import { Router } from '@angular/router';
 import { BloodRequest } from '../../model/blood-request';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { User } from '../../model/user';
+import { AppHttpInterceptor } from '../../app-http-interceptor';
 
 @Component({
   selector: 'app-user-request',
   templateUrl: './user-request.component.html',
-  styleUrls: ['./user-request.component.css']
+  styleUrls: ['./user-request.component.css'],
+  providers:[{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AppHttpInterceptor,
+    multi: true
+  }]
 })
 export class UserRequestComponent implements OnInit {
-  private request: BloodRequest;
+  private request: any;
+
   public message: string;
 
-  constructor(private requestService: BloodRequestService, private router: Router) { }
+  constructor(private requestService: BloodRequestService, private router: Router, private http:HttpClient) { }
 
   ngOnInit() {
     this.requestService.getter();
-  this.requestService.getById(67)
-  .subscribe(
-res => {
-  this.request=res;
+
+this.http.get("http://localhost:8080/requestRepo")
+.subscribe(
+res => {this.request=res;
+
+
+
  console.log(this.request.status);
   if(this.request.status==false)
   {

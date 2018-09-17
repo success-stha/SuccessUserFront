@@ -1,3 +1,4 @@
+<app-un-reg-navbar></app-un-reg-navbar>
 <br>
 <br>
 <br>
@@ -61,7 +62,7 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label control-label" for="dob">Date of Birth</label>
                             <div class="col-lg-9">
-                                <input required class="form-control" type="date" name="dob" [(ngModel)]="user.dateOfBirth" [ngClass]="{'is-invalid':dobControl.errors && dobControl.touched}"
+                                <input required class="form-control" type="date" max="{{today | date: 'yyyy-MM-dd'}}" name="dob" [(ngModel)]="user.dateOfBirth" [ngClass]="{'is-invalid':dobControl.errors && dobControl.touched}"
                                     #dobControl="ngModel">
                                     <span [hidden]="!dobControl.errors?.required" class="invalid-feedback text-danger">
                                         Date of Birth is required!
@@ -189,3 +190,5 @@
         </div>
     </div>
 </div>
+<br>
+<!-- <app-footer></app-footer> -->
