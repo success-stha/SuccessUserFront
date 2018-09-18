@@ -6,7 +6,7 @@
     <hr class="star-light">
     <h2 class="font-weight-light mb-0">Donate Blood, Save Lives</h2>
     <br>
-    <div class="btn btn-default btn-lg btn-square btn-dark" routerLink="/register">Register</div>
+    <div class="btn btn-default btn-lg btn-square btn-dark" *ngIf="loginToken == null && loginToken === ''" routerLink="/register">Register</div>
 
   </div>
 </header>

@@ -29,7 +29,7 @@
           <a class="nav-link py-3 px-0 px-lg-3 rounded bg-secondary" routerLink="/about">About</a>
         </li>
         <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-0 px-lg-3 rounded bg-secondary" routerLink="/register">Register</a>
+          <a class="nav-link py-3 px-0 px-lg-3 rounded bg-secondary" *ngIf="loginToken == null && loginToken === ''" routerLink="/register">Register</a>
         </li>
         <li class="nav-item mx-0 mx-lg-1" *ngIf="loginToken == null || loginToken === ''">
           <button class="btn btn-light py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-toggle="modal" routerLink="/login" data-target="#exampleModalLong">Login</button>

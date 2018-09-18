@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../model/user';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AppHttpInterceptor } from '../app-http-interceptor';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,7 @@ deleteUser(id: number){
 
 createUser(user: User){
  // console.log(user);
-  return this.http.post(this.baseUrl + '/saveUser', user);
+  return this.http.post(this.baseUrl + '/saveUser', user, {headers: { [AppHttpInterceptor.SKIP_TOKEN]: '' } });
 }
 
 updateUser(user: User) {
